@@ -64,5 +64,4 @@ FOM.a|>
     popup = content,
     clusterOptions = markerClusterOptions()) |> 
   addPolygons(
-    data = leaflet::getMapData(leaflet::leaflet(estados)),
-    fil
+    data = leaflet::getMapData(leaflet::leaflet(estados))
