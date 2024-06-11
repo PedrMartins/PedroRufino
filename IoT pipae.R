@@ -24,21 +24,18 @@ pi_raw <- read_sheet("https://docs.google.com/spreadsheets/d/12JiclFJ9luvW9JPee7
 
 pi_d <- pi_raw 
 pi_d <- pi_d |> 
-  mutate(Yf=year(pi_d$Hora),
-         Mf=month(pi_d$Hora),
-         Df=day(pi_d$Hora),
-         H=hour(pi_d$Hora),
+  mutate(H=hour(pi_d$Hora),
          M=minute(pi_d$Hora),
          S=second(pi_d$Hora))
 
 ##por hora
-pi_d <- pi_d [,-c(5,6,9:11)]
+pi_d <- pi_d [,-c(5,6,8)]
 
 
 pi_d |> 
   head()
 pi_d |> 
-  srt()
+  str()
 
 
 ############################################
@@ -48,26 +45,28 @@ pi_d |>
 med_pd = pi_d |>
   summarize_by_time (.date_var=Data,
                      by="day", 
-                     medco2=mean(CO2),
-                     medtem=mean(Temperatura),
-                     medpre=mean(Pressão)
+                     medco2=mean(CO2, na.rm = TRUE),
+                     medtem=mean(Temperatura,na.rm = TRUE),
+                     medpre=mean(Pressão,na.rm = TRUE)
   )
 med_pd
 
-l_p=lm (medco2~medpre, data= med_p)
+l_p=lm (medtem~medco2, data= med_p)
 
 med_ph= pi_d|> 
   group_by(H)|>
-  summarise(medco2=mean(CO2),
-            medtem=mean(Temperatura),
-            medpre=mean(Pressão))
-med_ph
+  summarise(medco2=mean(CO2,na.rm = TRUE),
+            medtem=mean(Temperatura,na.rm = TRUE),
+            medpre=mean(Pressão,na.rm = TRUE))
+med_ph [2] |>
+  View()
+
+
 ############Estrutura gráfica########################
 
-plot (medco2~medpre ,type="p", data= med_pd)
-lines (medtem~medpre, data = med_pd) #plota linhas 
+plot (medtem~medco2 ,type="n", data= med_pd)
+lines (medtem~Data, data = med_pd) #plota linhas 
 abline (l_p) #plot modelo linear
-med_p <- med_p [-15,] #retirando NA
 c_p=cor(as.data.frame(med_p[c(3:5)]))
 corrplot (c_p)    
 
