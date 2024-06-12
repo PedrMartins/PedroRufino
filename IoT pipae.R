@@ -4,6 +4,7 @@
 
 pkg <- c('googlesheets4',"lubridate", "timetk","dplyr","corrplot", "tidyr")
 pkg <- pkg[!pkg%in%installed.packages()] 
+pkg
 install.packages (pkg)
 #########################
 library (googlesheets4)
@@ -20,22 +21,22 @@ pi_raw <- read_sheet("https://docs.google.com/spreadsheets/d/12JiclFJ9luvW9JPee7
 
 
 ########################################################
-#####################Tratando dados##################
+#####################Tratando dados####################
 
 pi_d <- pi_raw 
 pi_d <- pi_d |> 
-  mutate(H=hour(pi_d$Hora),
-         M=minute(pi_d$Hora),
-         S=second(pi_d$Hora))
+  mutate(H=hour(pi_d$Hora))
 
 ##por hora
 pi_d <- pi_d [,-c(5,6,8)]
 
 
 pi_d |> 
-  head()
-pi_d |> 
-  str()
+ head()
+#pi_d |> 
+#  str()
+pi_d |>
+  dim()
 
 
 ############################################
@@ -51,7 +52,7 @@ med_pd = pi_d |>
   )
 med_pd
 
-l_p=lm (medtem~medco2, data= med_p)
+l_p=lm (medtem~medco2, data= med_pd)
 
 med_ph= pi_d|> 
   group_by(H)|>
@@ -64,8 +65,8 @@ med_ph [2] |>
 
 ############Estrutura gráfica########################
 
-plot (medtem~medco2 ,type="n", data= med_pd)
-lines (medtem~Data, data = med_pd) #plota linhas 
+plot (medco2~Data ,type="n", data= med_pd)
+lines (medco2~Data, data = med_pd) #plota linhas 
 abline (l_p) #plot modelo linear
 c_p=cor(as.data.frame(med_p[c(3:5)]))
 corrplot (c_p)    
