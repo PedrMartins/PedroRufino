@@ -2,7 +2,7 @@
 ###############################################################################
 ##############################ELEGÂNCIA EM BAIXAR PACOTES#######################
 
-pkg <- c('googlesheets4',"lubridate", "timetk","dplyr","corrplot", "tidyr")
+pkg <- c('googlesheets4',"lubridate", "timetk","dplyr","corrplot", "tidyr",'stringr')
 pkg <- pkg[!pkg%in%installed.packages()] 
 pkg
 install.packages (pkg)
@@ -17,13 +17,17 @@ library(corrplot)
 
 ########################################################
 #Read google sheets data into R
-pi_raw <- read_sheet("https://docs.google.com/spreadsheets/d/12JiclFJ9luvW9JPee77TJh1zCGnaPTcfv_RN6pl7hRk/edit?usp=sharing")	
+pi_raw7 <- read_sheet("https://docs.google.com/spreadsheets/d/12JiclFJ9luvW9JPee77TJh1zCGnaPTcfv_RN6pl7hRk/edit?usp=sharing")	
+pi_raw3 <- read_sheet("https://docs.google.com/spreadsheets/d/1phwbkcWpC61vraF0FrI5hI7Q9098EAz1LRYmzf5lUhg/edit?usp=sharing")
 
-
+pi_raw7 <- read_sheet("https://docs.google.com/spreadsheets/d/12JiclFJ9luvW9JPee77TJh1zCGnaPTcfv_RN6pl7hRk/edit?usp=sharing")	
+pi_raw7 <- read_sheet("https://docs.google.com/spreadsheets/d/12JiclFJ9luvW9JPee77TJh1zCGnaPTcfv_RN6pl7hRk/edit?usp=sharing")	
 ########################################################
 #####################Tratando dados####################
 
 pi_d <- pi_raw 
+pi_d3 <- pi_raw3
+pi_d3 <- pi_d3 [,-8]
 pi_d <- pi_d |> 
   mutate(H=hour(pi_d$Hora))
 
@@ -31,8 +35,44 @@ pi_d <- pi_d |>
 pi_d <- pi_d [,-c(5,6,8)]
 
 
+pi_d3 |> 
+  head()
+
+10^4 
+pi_d$`Luminosidade(?)`|>
+  str () 
+
+pi_d3 |> 
+  tail()
+
+
+
 pi_d |> 
  head()
+
+colnames(pi_d3) <- c('co2','temp','U','P',"L",'uv','D') 
+  range(pi_d3$co2)
+  mean (pi_d3$co2)
+  is.na(pi_d3$co2)
+  
+  range(pi_d3$temp)
+  
+  range(pi_d3$U)
+  
+  
+  range(pi_d3$P)
+  
+  dim (pi_d3)
+  
+
+  
+  
+  10^4 
+pi_d$`Luminosidade(?)`|>
+  str () 
+
+pi_d |> 
+  tail()
 #pi_d |> 
 #  str()
 pi_d |>
