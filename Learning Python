@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+
+# Comentário: Isso é um comentário em Python
+
+# 1. Variáveis e Tipos de Dados
+print("1. Variáveis e Tipos de Dados")
+nome = "Alice"  # String
+idade = 30      # Inteiro
+altura = 1.65   # Float
+is_student = True  # Booleano
+
+print(f"Nome: {nome}, Idade: {idade}, Altura: {altura}, Estudante: {is_student}\n")
+
+# 2. Operações Matemáticas
+print("2. Operações Matemáticas")
+a = 10
+b = 5
+print(f"a = {a}, b = {b}")
+print(f"Soma: {a + b}")
+print(f"Subtração: {a - b}")
+print(f"Multiplicação: {a * b}")
+print(f"Divisão: {a / b}")
+print(f"Divisão Inteira: {a // b}")
+print(f"Resto da Divisão: {a % b}")
+print(f"Exponenciação: {a ** b}\n")
+
+# 3. Listas
+print("3. Listas")
+frutas = ["maçã", "banana", "laranja"]
+print(f"Lista de frutas: {frutas}")
+frutas.append("uva")  # Adicionar um item à lista
+print(f"Lista de frutas após adicionar 'uva': {frutas}")
+print(f"Primeira fruta: {frutas[0]}")
+print(f"Última fruta: {frutas[-1]}\n")
+
+# 4. Loops
+print("4. Loops")
+print("Loop for:")
+for fruta in frutas:
+    print(fruta)
+
+print("\nLoop while:")
+contador = 0
+while contador < 3:
+    print(contador)
+    contador += 1
+print("")
+
+# 5. Condicionais
+print("5. Condicionais")
+numero = 7
+if numero > 10:
+    print(f"{numero} é maior que 10")
+elif numero == 10:
+    print(f"{numero} é igual a 10")
+else:
+    print(f"{numero} é menor que 10")
+print("")
+
+# 6. Funções
+print("6. Funções")
+def saudacao(nome):
+    return f"Olá, {nome}!"
+
+mensagem = saudacao("Bob")
+print(mensagem)
+
+def soma(x, y):
+    return x + y
+
+resultado = soma(3, 4)
+print(f"A soma de 3 e 4 é: {resultado}\n")
+
+# 7. Dicionários
+print("7. Dicionários")
+pessoa = {
+    "nome": "Carlos",
+    "idade": 28,
+    "cidade": "São Paulo"
+}
+print(f"Nome: {pessoa['nome']}")
+print(f"Idade: {pessoa['idade']}")
+print(f"Cidade: {pessoa['cidade']}\n")
+
+# 8. Manipulação de Strings
+print("8. Manipulação de Strings")
+texto = "  Olá, Mundo!  "
+print(f"Texto original: '{texto}'")
+print(f"Texto em minúsculas: '{texto.lower()}'")
+print(f"Texto em maiúsculas: '{texto.upper()}'")
+print(f"Texto sem espaços em branco: '{texto.strip()}'")
+print(f"Texto substituindo 'Mundo' por 'Python': '{texto.replace('Mundo', 'Python')}'")
+
+print("\nScript finalizado!")
