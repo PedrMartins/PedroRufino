@@ -87,7 +87,7 @@ class Game:
     def play (self): 
         game_number = 0
         games_to_play=0
-
+#problemas no while
         while games_to_play <= 0:
             try:
                 games_to_play = int (input("How many games do you want to play"))
