@@ -1,4 +1,5 @@
 import random 
+
 class Card:
     def __init__(self, suit, rank):
         self.suit=suit
@@ -11,7 +12,7 @@ class Card:
 class Deck:
     def __init__(self):
         self.cards =[]
-        suits=["sapades","clubs","hearts","diamonds"]
+        suits=["spades","clubs","hearts","diamonds"]
         ranks =[
             {"rank":"A", "value":11},
             {"rank":"2", "value":2},
@@ -56,7 +57,7 @@ class Hand:
     def calculate_value (self):
         self.value=0
         has_ace=False
-        for  card in self.cards:
+        for card in self.cards:
             card_value= int (card.rank ["value"])
             self.value += card_value
             if card.rank["rank"] == "A":
@@ -86,23 +87,25 @@ class Hand:
 class Game:
     def play (self): 
         game_number = 0
-        games_to_play=0
-#problemas no while
-        while games_to_play <= 0:
+        games_to_play = 0
+
+       while games_to_play <= 0:
             try:
-                games_to_play = int (input("How many games do you want to play"))
+                games_to_play = int(input("How many games do you want to play? "))
             except:
-                print ("You must enter a number.") 
+                print("You must enter a number.")
 
         while games_number < games_to_play:
             game_number += 1
 
             deck = Deck ()
             deck.shuffle()
-                
+            player_hand = Hand ()
+            dealer_hand = Hand (dealer = True)
+            
             for i in range (2):
-                player_hand = Hand ()
-                dealer_hand = Hand (dealer = True)
+                player_hand.add_card(deck.deal(1))
+                dealer_hand.add_card(deck.deal(1))                
             
             print () 
             print ("*" * 30)
@@ -115,7 +118,7 @@ class Game:
                 continue
 
             choice = ""
-            while player_hand.get_value() < 21 and choicen not in ['s','stand']:
+            while player_hand.get_value() < 21 and choice not in ['s','stand']:
                 choice = input ("Please choose 'Hit' or 'Stand': ").lower()
                 print ()
                 while choice not in ['s','h','hit','stand']:
@@ -145,14 +148,14 @@ class Game:
             print ("Your hand:", player_hand_value)
             print ("Dealer's hand:", dealer_hand_value)
 
-            self.check_winner (player_hande, dealer_hand, True)
+            self.check_winner (player_hand, dealer_hand, True)
         
         print ("\n Thanks for playing!")
 
         
     def check_winner (self, player_hand, dealer_hand, game_over=False):
         if not game_over:
-            if player_hande.get_value() > 21:
+            if player_hand.get_value() > 21:
                 print ("You busted. Dealer wins! =(")
                 return True
             elif dealer_hand.get_value() > 21:
