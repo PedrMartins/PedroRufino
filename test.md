@@ -6,9 +6,7 @@ After finishing the [Getting Started](https://github.com/caninos-loucos/pulga-ze
 
 - First open a virtual envirommental and sincronize on terminal using the following code:
 ``` console
-user@user:~$ cd path/to/where/venv/was/installed &&
-source .venv/bin/activate &&
-west update
+user@user:~$ cd path/to/where/venv/was/installed && source .venv/bin/activate && west update
 ```
 
 So now it's possible make changes inside the code
