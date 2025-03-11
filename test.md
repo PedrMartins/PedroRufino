@@ -6,8 +6,8 @@ After finishing the [Getting Started](https://github.com/caninos-loucos/pulga-ze
 
 - First open a virtual envirommental and sincronize on terminal using the following code:
 ``` console
-user@user:~$ cd path/to/where/venv/was/installed
-source .venv/bin/activate
+user@user:~$ cd path/to/where/venv/was/installed &&
+source .venv/bin/activate &&
 west update
 ```
 
