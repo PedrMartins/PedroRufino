@@ -1,4 +1,3 @@
-
 # Building Image on Pulga Zephyr
 
 ## First steps
@@ -109,7 +108,7 @@ and paste here, after you can do the folloing steps:
 ```
 ### In Google Sheets
 
-- Paht:
+- Path:
     - 
 - To configurate the application connection you have to copy the code bellow and do the modifications as described here:
     - Google Sheet using Id: 
@@ -216,15 +215,31 @@ function doPost(request){
 #### Images ilustratives
 
 ##### Device
+<div align="center">
 
 ![Device part 1](link)
+
+</div>
+
+<div align="center">
+
 ![Device part 2](link)
 
+</div>
+
 ##### Filter 
+<div align="center">
+
 ![Filter](link)
 
+</div>
+
 ##### Connection
+<div align="center">
+
 ![Connection](link)
+
+</div>
 
 _________
 ## Building Image
