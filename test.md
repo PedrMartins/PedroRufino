@@ -112,7 +112,7 @@ and paste here, after you can do the folloing steps:
     - 
 - Google Sheet using Id: 
     - example
-        - docs.google.com/spreadsheets/d/ ==1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY== /edit?gid=0#gid=0
+        - docs.google.com/spreadsheets/d/ <mark>1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY</mark> /edit?gid=0#gid=0
 
 ``` c#
 
