@@ -1,3 +1,4 @@
+
 # Building Image on Pulga Zephyr
 
 ## First steps
@@ -110,15 +111,23 @@ and paste here, after you can do the folloing steps:
 
 - Paht:
     - 
-- Google Sheet using Id: 
-    - example
-        - docs.google.com/spreadsheets/d/ <mark>1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY</mark> /edit?gid=0#gid=0
+- To configurate the application connection you have to copy the code bellow and do the modifications as described here:
+    - Google Sheet using Id: 
+        - example
+            - docs.google.com/spreadsheets/d/<mark>1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY </mark>/edit?gid=0#gid=0
+
 
 ``` c#
 
 function doPost(request){
-  // Open Google Sheet using ID
-  var sheet = SpreadsheetApp.openById("1zV8ZpDkXloRghM3c0efpS_R3KxPWLPkMjbgJ9PT_euI").getActiveSheet();
+    /* Open Google Sheet using ID
+    Copy the higlighted part on URL adress of your Google Sheets and inside the openById function
+    as the example:
+    -> http//docs.google.com/spreadsheets/d/1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY/edit?gid=0#gid=0
+    -> 1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY
+    -> SpreadsheetApp.openById("1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY")
+    */
+  var sheet = SpreadsheetApp.openById("1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY").getActiveSheet();
   var result = {"status": "SUCCESS"};
   try{
     // Parse request data
@@ -206,8 +215,17 @@ function doPost(request){
 ```
 #### Images ilustratives
 
+##### Device
 
-    
+![Device part 1](link)
+![Device part 2](link)
+
+##### Filter 
+![Filter](link)
+
+##### Connection
+![Connection](link)
+
 _________
 ## Building Image
 
