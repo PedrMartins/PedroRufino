@@ -1,4 +1,21 @@
 # Building Image on Pulga Zephyr
+## Summary
+
+- [First steps]()
+- [Connecting the Fimrware to Network]()
+    - [In American Tower Connection]()
+        - [Create Device]()
+        - [Create Filter]()
+        - [Create Connection]()
+    - [Images Device American Tower]()
+      - [Device]()
+      - [Filter]()
+      - [Connection]()
+    - [In Google Sheets]()
+    - [Images Google Sheets]()
+      - [Google Sheets ID]()
+      - [Deploy]()
+  [Building]()
 
 ## First steps
 
@@ -27,7 +44,7 @@ In the `PULGA-ZEPHYR\app`
         CONFIG_LORAWAN_DR=0                     //  must be fillded with 0
         ```
 
-        > For more details read this [sections](https://github.com/caninos-loucos/pulga-zephyr?tab=readme-ov-file#application-configurations) on README.md
+        > For more details read this [Application](https://github.com/caninos-loucos/pulga-zephyr?tab=readme-ov-file#application-configurations) sections on README.md
 _________
 ## Connecting the Fimrware to Network
 
@@ -82,7 +99,7 @@ Path: `PULGA-ZEPHY/app/comunicaition/lorawan/lorawan_buffer/lorawan_keys_exampla
 #define LORAWAN_DEV_EUI {0x70, 0xc4, 0xde, 0x69, 0xf0, 0xa1, 0x1c, 0x40} 
 
 /*
-To transform the hexadecimal key to binary you might copy the key generated in site or in any generator site
+To transform the hexadecimal key to binary, you might copy the key generated in site or in any generator site
 
 and paste here, after you can do the folloing steps:
     paste -> 70c4de69f0a11c40
@@ -106,17 +123,47 @@ and paste here, after you can do the folloing steps:
 #define LORAWAN_DEV_ADDR 0xd96f77df
 
 ```
+
+### Images American Tower
+
+#### Device
+<div align="center">
+
+![Device part 1](link)
+
+</div>
+
+<div align="center">
+
+![Device part 2](link)
+
+</div>
+
+#### Filter 
+<div align="center">
+
+![Filter](link)
+
+</div>
+
+#### Connection
+<div align="center">
+
+![Connection](link)
+
+</div>
+
 ### In Google Sheets
 
 - Path:
-    - 
+    - Extensions > Apps Script
 - To configurate the application connection you have to copy the code bellow and do the modifications as described here:
     - Google Sheet using Id: 
         - example
             - docs.google.com/spreadsheets/d/<mark>1sO6Xqce1NKMzsS28SWCquOBqy7wZhiUHdqbM6FaCgrY </mark>/edit?gid=0#gid=0
 
 
-``` c#
+``` c
 
 function doPost(request){
     /* Open Google Sheet using ID
@@ -212,35 +259,43 @@ function doPost(request){
 }
 
 ```
-#### Images ilustratives
+### Images Google Sheets
 
-##### Device
+#### Sheets Id
 <div align="center">
 
-![Device part 1](link)
+![Deploy Parte 1](link)
+
+</div>
+
+#### Deploy Application
+<div align="center">
+
+![Deploy Parte 2](link)
 
 </div>
 
 <div align="center">
 
-![Device part 2](link)
+![Deploy Parte 3](link)
 
 </div>
 
-##### Filter 
 <div align="center">
 
-![Filter](link)
+![Deploy Parte 4](link)
 
 </div>
 
-##### Connection
 <div align="center">
 
-![Connection](link)
+![Deploy Parte 4](link)
 
 </div>
 
-_________
+
+_______
 ## Building Image
+
+To build the Image just follow the steps dicribed in [Building](https://github.com/caninos-loucos/pulga-zephyr?tab=readme-ov-file#building-and-running) section 
 
